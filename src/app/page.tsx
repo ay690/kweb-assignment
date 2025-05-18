@@ -8,6 +8,7 @@ import Carousal from "@/components/ui/Carousal";
 import LocationSection from "@/components/ui/LocationSection";
 import Professionals from "@/components/ui/Profesionals";
 import EventsCoaches from "@/components/ui/EventsCoaches";
+import Facilities from "@/components/ui/Facilities";
 import Footer from "@/components/common/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <Carousal />
       <LocationSection />
       <Professionals />
+      <Facilities />
       <EventsCoaches />
       <Footer />
     </main>
