@@ -51,10 +51,10 @@ This project is component-driven and modular, designed for clarity and scalabili
 
 ## 🛠️ Tech Stack
 
-- **Next.js** – App framework for SSR and SSG
+- **Next.js** – React framework with SSR/SSG support
 - **Tailwind CSS** – Utility-first CSS framework for design
-- **TypeScript** – Static typing (optional if enabled)
-- **Framer Motion** – For animations (if used)
+- **TypeScript** –  Type-safe development
+- **Framer Motion** – Smooth animations and scroll effects
 - **Lucide Icons** – Clean and modern icons
 
 ---
