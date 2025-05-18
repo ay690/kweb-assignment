@@ -5,6 +5,7 @@ import About from "@/components/ui/About";
 import Quote from "@/components/ui/Quote";
 import Features from "@/components/ui/Features";
 import Programs from "@/components/ui/Programs";
+import Carousal from "@/components/ui/Carousal";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Quote />
       <Features />
       <Programs />
+      <Carousal />
     </main>
   );
 }
