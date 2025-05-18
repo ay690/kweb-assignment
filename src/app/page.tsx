@@ -7,6 +7,7 @@ import Programs from "@/components/ui/Programs";
 import Carousal from "@/components/ui/Carousal";
 import LocationSection from "@/components/ui/LocationSection";
 import Professionals from "@/components/ui/Profesionals";
+import EventsCoaches from "@/components/ui/EventsCoaches";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Carousal />
       <LocationSection />
       <Professionals />
+      <EventsCoaches />
     </main>
   );
 }
