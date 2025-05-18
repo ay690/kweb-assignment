@@ -6,6 +6,7 @@ import Quote from "@/components/ui/Quote";
 import Features from "@/components/ui/Features";
 import Programs from "@/components/ui/Programs";
 import Carousal from "@/components/ui/Carousal";
+import LocationSection from "@/components/ui/LocationSection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Features />
       <Programs />
       <Carousal />
+      <LocationSection />
     </main>
   );
 }
