@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Play } from "lucide-react";
 import FacilitiesMobile from "./FacilitiesMobile";
+import { motion } from "framer-motion";
 
 interface Facility {
   title: string;
@@ -51,6 +52,20 @@ const facilitiesBottom: Facility[] = [
   },
 ];
 
+// Animation variants for cards
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.15,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function Facilities() {
   return (
     <>
@@ -63,18 +78,18 @@ export default function Facilities() {
       <div className="hidden md:block">
         <section className="relative py-20 bg-white overflow-hidden">
           <div className="container mx-auto px-6 max-w-7xl">
-            {/* Header - above gradient */}
+            {/* Header */}
             <div className="mb-36 text-start">
               <div className="flex items-center">
-            <h2 className="text-[36px] font-bold text-black mr-4">Facilities</h2>
-            <div className="w-[10px] h-[10px] bg-[#99b81a] rounded-[5px]" />
-          </div>
+                <h2 className="text-[36px] font-bold text-black mr-4">Facilities</h2>
+                <div className="w-[10px] h-[10px] bg-[#99b81a] rounded-[5px]" />
+              </div>
               <p className="mt-2 text-gray-600 max-w-md">
                 Lorem Ipsum has been the industry&apos;s standard dummy text ever since the 1500s.
               </p>
             </div>
 
-            {/* Gradient backdrop - full width */}
+            {/* Gradient backdrop */}
             <div className="absolute inset-x-0 top-0 h-3/5 bg-gradient-to-r from-blue-800 to-green-500 mt-80"></div>
 
             {/* Trophy silhouette */}
@@ -89,10 +104,18 @@ export default function Facilities() {
 
             {/* Wrapper for absolute grids */}
             <div className="relative h-[800px] w-full">
-              {/* Top row - pinned top-left */}
+              {/* Top row */}
               <div className="absolute -top-20 left-0 max-w-xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-2">
                 {facilitiesTop.map((f, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg group">
+                  <motion.div
+                    key={idx}
+                    className="bg-white rounded-2xl overflow-hidden shadow-lg group"
+                    custom={idx}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardVariants}
+                  >
                     <div className="relative">
                       <Image
                         src={f.image}
@@ -122,14 +145,22 @@ export default function Facilities() {
                       </div>
                       <p className="text-gray-600">{f.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
-              {/* Bottom row - pinned bottom-right */}
+              {/* Bottom row */}
               <div className="absolute bottom-10 right-0 max-w-xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
                 {facilitiesBottom.map((f, idx) => (
-                  <div key={idx} className="bg-white rounded-2xl overflow-hidden shadow-lg group">
+                  <motion.div
+                    key={idx}
+                    className="bg-white rounded-2xl overflow-hidden shadow-lg group"
+                    custom={idx}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardVariants}
+                  >
                     <div className="relative">
                       <Image
                         src={f.image}
@@ -159,7 +190,7 @@ export default function Facilities() {
                       </div>
                       <p className="text-gray-600">{f.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>

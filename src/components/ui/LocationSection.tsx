@@ -1,11 +1,19 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function LocationSection() {
   return (
     <section className="py-16">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Left Content */}
-        <div className="bg-gradient-to-br from-[#003a5d] to-[#99b81a] p-8 md:p-16 text-white">
+        {/* Left Content Animation */}
+        <motion.div
+          initial={{ x: -50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-br from-[#003a5d] to-[#99b81a] p-8 md:p-16 text-white"
+        >
           <h2 className="text-[20px] md:text-[25px] font-light uppercase mb-2">
             Launching
           </h2>
@@ -47,10 +55,16 @@ export default function LocationSection() {
               </li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
-        {/* Right content */}
-        <div className="relative min-h-[300px] md:min-h-[500px] h-full">
+        {/* Right Image Animation */}
+        <motion.div
+          initial={{ x: 50, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+          className="relative min-h-[300px] md:min-h-[500px] h-full"
+        >
           <Image
             src="/images/img_image_5.png"
             alt="Aerial View"
@@ -63,8 +77,9 @@ export default function LocationSection() {
             <span className="w-3 h-3 bg-white/50 rounded-full"></span>
             <span className="w-3 h-3 bg-white/50 rounded-full"></span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+

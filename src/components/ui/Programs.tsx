@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "@/components/common/Card";
 import Button from "@/components/common/Button";
+import { motion } from "framer-motion";
 
 export default function Programs() {
   const programs = [
@@ -30,6 +31,20 @@ export default function Programs() {
     },
   ];
 
+  // Variants for cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
     <section className="py-16 px-4">
       <div className="container mx-auto max-w-7xl">
@@ -51,21 +66,28 @@ export default function Programs() {
 
         {/* Program Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {programs.map((prog) => (
-            <Card
+          {programs.map((prog, idx) => (
+            <motion.div
               key={prog.title}
-              src={prog.src}
-              alt={prog.alt}
-              title={prog.title}
-              subtitle={prog.subtitle}
-              className="h-80 md:h-96 rounded-[10px]"
-              titleClassName={prog.titleClassName}
-              subtitleClassName={prog.subtitleClassName}
-            />
+              custom={idx}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+            >
+              <Card
+                src={prog.src}
+                alt={prog.alt}
+                title={prog.title}
+                subtitle={prog.subtitle}
+                className="h-80 md:h-96 rounded-[10px]"
+                titleClassName={prog.titleClassName}
+                subtitleClassName={prog.subtitleClassName}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function EventsCoaches() {
   return (
@@ -13,7 +14,13 @@ export default function EventsCoaches() {
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-black/30 p-6 md:p-16 flex flex-col justify-center">
+          <motion.div
+            className="absolute inset-0 bg-black/30 p-6 md:p-16 flex flex-col justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-center mb-4 md:mb-8">
               <h2 className="text-2xl md:text-[36px] font-bold text-white mr-2 md:mr-4">
                 Our Coaches
@@ -38,7 +45,7 @@ export default function EventsCoaches() {
                 className="w-5 h-5 md:w-6 md:h-6"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Events Section */}
@@ -53,7 +60,13 @@ export default function EventsCoaches() {
             />
           </div>
 
-          <div className="p-6 md:p-16 flex flex-col justify-center h-full">
+          <motion.div
+            className="p-6 md:p-16 flex flex-col justify-center h-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
             <div className="flex items-center mb-4 md:mb-8">
               <h2 className="text-2xl md:text-[36px] font-bold text-white mr-2 md:mr-4">
                 Events
@@ -78,7 +91,7 @@ export default function EventsCoaches() {
                 className="w-5 h-5 md:w-6 md:h-6"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
